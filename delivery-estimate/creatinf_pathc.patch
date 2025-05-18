@@ -1,0 +1,398 @@
+Subject: [PATCH] creatinf pathc
+---
+Index: src/main/java/com/example/ecom/repositories/DeliveryHubRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/repositories/DeliveryHubRepository.java b/src/main/java/com/example/ecom/repositories/DeliveryHubRepository.java
+--- a/src/main/java/com/example/ecom/repositories/DeliveryHubRepository.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/repositories/DeliveryHubRepository.java	(date 1720334796266)
+@@ -1,5 +1,9 @@
+ package com.example.ecom.repositories;
+ 
+-public interface DeliveryHubRepository {
++import com.example.ecom.models.DeliveryHub;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++@Repository
++public interface DeliveryHubRepository extends JpaRepository<DeliveryHub, Integer>{
+ 
+ }
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/resources/application.properties	(date 1720336636573)
+@@ -2,4 +2,5 @@
+ spring.datasource.driverClassName=org.h2.Driver
+ spring.datasource.username=sa
+ spring.datasource.password=password
+-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+\ No newline at end of file
++spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
++spring.jpa.properties.hibernate.globally_quoted_identifiers=true
+\ No newline at end of file
+Index: src/main/java/com/example/ecom/repositories/ProductRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/repositories/ProductRepository.java b/src/main/java/com/example/ecom/repositories/ProductRepository.java
+--- a/src/main/java/com/example/ecom/repositories/ProductRepository.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/repositories/ProductRepository.java	(date 1720334796290)
+@@ -1,6 +1,10 @@
+ package com.example.ecom.repositories;
+ 
+-public interface ProductRepository {
++import com.example.ecom.models.Product;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++@Repository
++public interface ProductRepository extends JpaRepository<Product, Integer> {
+ 
+ }
+ 
+Index: src/main/java/com/example/ecom/repositories/SellerRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/repositories/SellerRepository.java b/src/main/java/com/example/ecom/repositories/SellerRepository.java
+--- a/src/main/java/com/example/ecom/repositories/SellerRepository.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/repositories/SellerRepository.java	(date 1720334796273)
+@@ -1,4 +1,8 @@
+ package com.example.ecom.repositories;
+ 
+-public interface SellerRepository  {
++import com.example.ecom.models.Seller;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++@Repository
++public interface SellerRepository extends JpaRepository<Seller, Integer> {
+ }
+Index: src/main/java/com/example/ecom/repositories/UserRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/repositories/UserRepository.java b/src/main/java/com/example/ecom/repositories/UserRepository.java
+--- a/src/main/java/com/example/ecom/repositories/UserRepository.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/repositories/UserRepository.java	(date 1720334796234)
+@@ -1,5 +1,9 @@
+ package com.example.ecom.repositories;
+ 
+-public interface UserRepository{
++import com.example.ecom.models.User;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++@Repository
++public interface UserRepository extends JpaRepository<User, Integer> {
+ 
+ }
+Index: src/main/java/com/example/ecom/repositories/AddressRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/repositories/AddressRepository.java b/src/main/java/com/example/ecom/repositories/AddressRepository.java
+--- a/src/main/java/com/example/ecom/repositories/AddressRepository.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/repositories/AddressRepository.java	(date 1720334796261)
+@@ -1,6 +1,10 @@
+ package com.example.ecom.repositories;
+ 
+ 
+-public interface AddressRepository {
++import com.example.ecom.models.Address;
++import org.springframework.data.jpa.repository.JpaRepository;
++import org.springframework.stereotype.Repository;
++@Repository
++public interface AddressRepository extends JpaRepository<Address, Integer>{
+ 
+ }
+Index: src/main/java/com/example/ecom/controllers/ProductController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/controllers/ProductController.java b/src/main/java/com/example/ecom/controllers/ProductController.java
+--- a/src/main/java/com/example/ecom/controllers/ProductController.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/controllers/ProductController.java	(date 1720336516887)
+@@ -2,8 +2,13 @@
+ 
+ import com.example.ecom.dtos.DeliveryEstimateRequestDto;
+ import com.example.ecom.dtos.DeliveryEstimateResponseDto;
++import com.example.ecom.dtos.ResponseStatus;
+ import com.example.ecom.services.ProductService;
++import org.springframework.stereotype.Controller;
+ 
++import java.util.Date;
++
++@Controller
+ public class ProductController {
+ 
+     private ProductService productService;
+@@ -13,6 +18,15 @@
+     }
+ 
+     public DeliveryEstimateResponseDto estimateDeliveryTime(DeliveryEstimateRequestDto requestDto){
+-        return null;
++        DeliveryEstimateResponseDto responseDto= new DeliveryEstimateResponseDto();
++        try{
++            Date estimateDate =  productService.estimateDeliveryDate(requestDto.getProductId(), requestDto.getAddressId());
++            responseDto.setExpectedDeliveryDate(estimateDate);
++            responseDto.setResponseStatus(ResponseStatus.SUCCESS);
++        }catch(Exception e){
++            responseDto.setResponseStatus(ResponseStatus.FAILURE);
++        }
++
++        return responseDto;
+     }
+ }
+Index: src/main/java/com/example/ecom/services/ProductServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/services/ProductServiceImpl.java b/src/main/java/com/example/ecom/services/ProductServiceImpl.java
+new file mode 100644
+--- /dev/null	(date 1720336479103)
++++ b/src/main/java/com/example/ecom/services/ProductServiceImpl.java	(date 1720336479103)
+@@ -0,0 +1,76 @@
++package com.example.ecom.services;
++
++import com.example.ecom.exceptions.AddressNotFoundException;
++import com.example.ecom.exceptions.ProductNotFoundException;
++import com.example.ecom.libraries.GoogleMapsApi;
++import com.example.ecom.libraries.models.GLocation;
++import com.example.ecom.models.Address;
++import com.example.ecom.models.DeliveryHub;
++import com.example.ecom.models.Product;
++import com.example.ecom.repositories.*;
++
++import java.util.Date;
++import java.util.List;
++
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.stereotype.Service;
++
++@Service
++public class ProductServiceImpl implements ProductService {
++    @Autowired
++    private AddressRepository addressRepository;
++
++    @Autowired
++    private DeliveryHubRepository deliveryHubRepository;
++
++    @Autowired
++    private ProductRepository productRepository;
++
++    @Autowired
++    private SellerRepository sellerRepository;
++
++    @Autowired
++    private UserRepository userRepository;
++    @Autowired
++    private GoogleMapsApi mapsApi;
++
++    public Date estimateDeliveryDate(int productId, int addressId) throws ProductNotFoundException, AddressNotFoundException {
++        Address customerAdddress = addressRepository.findById(addressId).orElseThrow(() -> new AddressNotFoundException("Address not found"));
++        Product prod = productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException("Product not found"));
++        List<DeliveryHub> delvieryHib = deliveryHubRepository.findAll();
++
++        Address sellerAddress = prod.getSeller().getAddress();
++        double sellerLatitude = sellerAddress.getLatitude();
++        double sellerLongitude = sellerAddress.getLongitude();
++
++        double delihubLatitude = 0;
++        double delihubLongitude = 0;
++        for (DeliveryHub hub : delvieryHib) {
++            if (hub.getAddress().getZipCode().equals(sellerAddress.getZipCode())) {
++                delihubLatitude = hub.getAddress().getLatitude();
++                delihubLongitude = hub.getAddress().getLongitude();
++            }
++        }
++
++        double customerLatitude = customerAdddress.getLatitude();
++        double customerLongitude = customerAdddress.getLongitude();
++
++        GLocation sellerLocation = new GLocation();
++        sellerLocation.setLatitude(sellerLatitude);
++        sellerLocation.setLongitude(sellerLongitude);
++
++        GLocation deliveryHubLocation = new GLocation();
++        deliveryHubLocation.setLatitude(delihubLatitude);
++        deliveryHubLocation.setLongitude(delihubLongitude);
++
++        GLocation customerLocation = new GLocation();
++        customerLocation.setLongitude(customerLongitude);
++        customerLocation.setLatitude(customerLatitude);
++        //seller ->  delivery hub
++        // delivery hub -> customer
++        int secondsTakenToHub = mapsApi.estimate(sellerLocation, deliveryHubLocation);
++        int secondsTakenToCustomer = mapsApi.estimate(deliveryHubLocation, customerLocation);
++
++        return new Date(System.currentTimeMillis() + (secondsTakenToHub+ secondsTakenToCustomer* 1000L));
++    }
++}
+Index: src/main/java/com/example/ecom/models/Seller.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/models/Seller.java b/src/main/java/com/example/ecom/models/Seller.java
+--- a/src/main/java/com/example/ecom/models/Seller.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/models/Seller.java	(date 1720334928200)
+@@ -1,10 +1,14 @@
+ package com.example.ecom.models;
+ 
++import jakarta.persistence.Entity;
++import jakarta.persistence.OneToOne;
+ import lombok.Data;
+ 
+ @Data
++@Entity
+ public class Seller extends BaseModel{
+     private String name;
+     private String email;
++    @OneToOne
+     private Address address;
+ }
+Index: src/main/java/com/example/ecom/libraries/GoogleMapsApi.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/libraries/GoogleMapsApi.java b/src/main/java/com/example/ecom/libraries/GoogleMapsApi.java
+--- a/src/main/java/com/example/ecom/libraries/GoogleMapsApi.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/libraries/GoogleMapsApi.java	(date 1720335756035)
+@@ -1,9 +1,12 @@
+ package com.example.ecom.libraries;
+ 
+ import com.example.ecom.libraries.models.GLocation;
++import org.springframework.stereotype.Service;
+ 
+ import java.util.Random;
+ 
++
++@Service
+ public class GoogleMapsApi {
+ 
+     public int estimate(GLocation src, GLocation dest) {
+Index: src/main/java/com/example/ecom/models/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/models/User.java b/src/main/java/com/example/ecom/models/User.java
+--- a/src/main/java/com/example/ecom/models/User.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/models/User.java	(date 1720334928206)
+@@ -1,12 +1,16 @@
+ package com.example.ecom.models;
+ 
++import jakarta.persistence.Entity;
++import jakarta.persistence.OneToMany;
+ import lombok.Data;
+ 
+ import java.util.List;
+ 
+ @Data
++@Entity
+ public class User extends BaseModel{
+     private String name;
+     private String email;
++    @OneToMany
+     private List<Address> addresses;
+ }
+Index: src/main/java/com/example/ecom/models/BaseModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/models/BaseModel.java b/src/main/java/com/example/ecom/models/BaseModel.java
+--- a/src/main/java/com/example/ecom/models/BaseModel.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/models/BaseModel.java	(date 1720336559993)
+@@ -1,6 +1,15 @@
+ package com.example.ecom.models;
+ 
++import jakarta.persistence.GeneratedValue;
++import jakarta.persistence.GenerationType;
++import jakarta.persistence.Id;
++import jakarta.persistence.MappedSuperclass;
++import lombok.Data;
+ 
++@Data
++@MappedSuperclass
+ public abstract class BaseModel {
++    @Id
++    @GeneratedValue(strategy = GenerationType.AUTO)
+     private int id;
+ }
+Index: src/main/java/com/example/ecom/models/Address.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/models/Address.java b/src/main/java/com/example/ecom/models/Address.java
+--- a/src/main/java/com/example/ecom/models/Address.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/models/Address.java	(date 1720334796257)
+@@ -1,8 +1,10 @@
+ package com.example.ecom.models;
+ 
++import jakarta.persistence.Entity;
+ import lombok.Data;
+ 
+ @Data
++@Entity
+ public class Address extends BaseModel{
+     private String building;
+     private int floor;
+Index: src/main/java/com/example/ecom/models/DeliveryHub.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/models/DeliveryHub.java b/src/main/java/com/example/ecom/models/DeliveryHub.java
+--- a/src/main/java/com/example/ecom/models/DeliveryHub.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/models/DeliveryHub.java	(date 1720336795004)
+@@ -1,9 +1,13 @@
+ package com.example.ecom.models;
+ 
++import jakarta.persistence.Entity;
++import jakarta.persistence.OneToOne;
+ import lombok.Data;
+ 
+ @Data
++@Entity
+ public class DeliveryHub extends BaseModel{
++    @OneToOne
+     private Address address;
+     private String name;
+ }
+Index: src/main/java/com/example/ecom/models/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/models/Product.java b/src/main/java/com/example/ecom/models/Product.java
+--- a/src/main/java/com/example/ecom/models/Product.java	(revision c68be23a852070645f8fcf2c88e4450c8b7ba108)
++++ b/src/main/java/com/example/ecom/models/Product.java	(date 1720336753997)
+@@ -1,11 +1,15 @@
+ package com.example.ecom.models;
+ 
++import jakarta.persistence.Entity;
++import jakarta.persistence.ManyToOne;
+ import lombok.Data;
+ 
+ @Data
++@Entity
+ public class Product extends BaseModel{
+     private String name;
+     private String description;
+     private double price;
++    @ManyToOne
+     private Seller seller;
+ }
